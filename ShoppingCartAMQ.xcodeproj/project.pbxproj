@@ -13,6 +13,7 @@
 		D68FC7D92682933300EB926C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68FC7D72682933300EB926C /* Main.storyboard */; };
 		D68FC7DB2682933600EB926C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68FC7DA2682933600EB926C /* Assets.xcassets */; };
 		D68FC7DE2682933600EB926C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68FC7DC2682933600EB926C /* LaunchScreen.storyboard */; };
+		D68FC7E8268293C200EB926C /* ProductListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68FC7E7268293C200EB926C /* ProductListHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D68FC7DA2682933600EB926C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D68FC7DD2682933600EB926C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D68FC7DF2682933600EB926C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D68FC7E7268293C200EB926C /* ProductListHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		D68FC7D02682933300EB926C /* ShoppingCartAMQ */ = {
 			isa = PBXGroup;
 			children = (
+				D68FC7E6268293A800EB926C /* Helper */,
 				D68FC7D12682933300EB926C /* AppDelegate.swift */,
 				D68FC7D32682933300EB926C /* SceneDelegate.swift */,
 				D68FC7D52682933300EB926C /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				D68FC7DF2682933600EB926C /* Info.plist */,
 			);
 			path = ShoppingCartAMQ;
+			sourceTree = "<group>";
+		};
+		D68FC7E6268293A800EB926C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D68FC7E7268293C200EB926C /* ProductListHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 				D68FC7D62682933300EB926C /* ViewController.swift in Sources */,
 				D68FC7D22682933300EB926C /* AppDelegate.swift in Sources */,
 				D68FC7D42682933300EB926C /* SceneDelegate.swift in Sources */,
+				D68FC7E8268293C200EB926C /* ProductListHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
