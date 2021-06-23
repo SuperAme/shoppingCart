@@ -14,21 +14,21 @@ class ProductListHelper {
           "brand_F":"Nike",
           "sneakers_F":[
              {
-                "price_F_F":1,
+                "price_F":1237,
                 "name_F":"Nike Court Legacy Canvas",
                 "size_F":27,
                 "color_F":"white",
                 "img_F":"https://i.pinimg.com/236x/46/18/67/46186771f1c43f123206b0659afcbcb3.jpg"
              },
              {
-                "id_F":2,
+                "price_F":2525.34,
                 "name_F":"Nike Blazer Low",
                 "size_F":24,
                 "color_F":"Orange&Purple",
                 "img_F":"https://i.pinimg.com/236x/73/cb/bd/73cbbd14f29ad673879ebe097b669e78.jpg"
              },
              {
-                "id_F":3,
+                "price_F":3000.00,
                 "name_F":"Nike Killshot",
                 "size_F":23,
                 "color_F":"White&Black",
@@ -40,21 +40,21 @@ class ProductListHelper {
           "brand_F":"Adidas",
           "sneakers_F":[
              {
-                "id_F":1,
+                "price_F":1267.10,
                 "name_F":"Adidas Runtastic",
                 "size_F":24,
                 "color_F":"Aqua",
                 "img_F":"https://i.pinimg.com/236x/30/ae/d3/30aed3588bfa052a3131047805409e57.jpg"
              },
              {
-                "id_F":2,
+                "price_F":2000.00,
                 "name_F":"Adidas Tenis Stan",
                 "size_F":25,
                 "color_F":"Yellow",
                 "img_F":"https://i.pinimg.com/236x/c5/48/ef/c548efee97b5e4d5be29571f721dc730.jpg"
              },
              {
-                "id_F":3,
+                "price_F":3120.50,
                 "name_F":"Adidad Tenis VS Pace",
                 "size_F":26,
                 "color_F":"Black",
@@ -66,21 +66,21 @@ class ProductListHelper {
           "brand_F":"Puma",
           "sneakers_F":[
              {
-                "id_F":1,
+                "price_F":1000,
                 "name_F":"Tenis Puma Casual Serve",
                 "size_F":27,
                 "color_F":"Red&Green",
                 "img_F":"https://i.pinimg.com/236x/5c/17/9b/5c179b7cbc27a8d232c56debe0be5ef6.jpg"
              },
              {
-                "id_F":2,
+                "price_F":2300,
                 "name_F":"Tenis Puma Ralph",
                 "size_F":28,
                 "color_F":"white",
                 "img_F":"https://i.pinimg.com/236x/b5/77/4b/b5774b34580443a89dbc161230b28b87.jpg"
              },
              {
-                "id_F":3,
+                "price_F":3150.00,
                 "name_F":"Tenis Puma Caven",
                 "size_F":29,
                 "color_F":"blue",
@@ -90,4 +90,10 @@ class ProductListHelper {
        }
     ]
     """
+    
+    func getProductsData() -> [Product] {
+        let productJSONData = productsJson.data(using: .utf8)!
+        let productArray = try! JSONDecoder().decode([Product].self, from: productJSONData)
+        return productArray
+    }
 }
