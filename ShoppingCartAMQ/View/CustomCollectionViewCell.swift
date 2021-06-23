@@ -11,27 +11,35 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CustomCollectionViewCell"
     
-    private let myImageView: UIImageView = {
+    private let productImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "house")
-//        imageView.backgroundColor = .yellow
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    private let myLabel: UILabel = {
+    private let productNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Custom"
-//        label.backgroundColor = .green
         label.textAlignment = .center
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private let productPriceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Custom"
+        label.textAlignment = .center
+        label.numberOfLines = 1
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .systemRed
-        contentView.addSubview(myLabel)
-        contentView.addSubview(myImageView)
+        contentView.addSubview(productNameLabel)
+        contentView.addSubview(productPriceLabel)
+        contentView.addSubview(productImage)
         contentView.clipsToBounds = true
     }
     
@@ -41,23 +49,26 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        myLabel.frame = CGRect(x: 5,
-                               y: contentView.frame.size.height-50,
-                               width: contentView.frame.size.width-10,
-                               height: 50)
-        myImageView.frame = CGRect(x: 5,
+        productImage.frame = CGRect(x: 5,
                                    y: 0,
                                    width: contentView.frame.size.width-10,
-                                   height: contentView.frame.size.height-50)
+                                   height: contentView.frame.size.height/2)
+        productNameLabel.frame = CGRect(x: 5,
+                                        y: productImage.frame.origin.y+productImage.frame.size.height+5,
+                               width: contentView.frame.size.width-10,
+                               height: 45)
+        productPriceLabel.frame = CGRect(x: 5, y: productNameLabel.frame.origin.y+productNameLabel.frame.size.height+5, width: contentView.frame.size.width-10, height: 30)
+        
     }
     
-    public func configure(label: String) {
-        myLabel.text = label
+    public func configure(productName: String, productPrice: Double) {
+        productNameLabel.text = productName
+        productPriceLabel.text = String(productPrice)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        myLabel.text = nil
+        productNameLabel.text = nil
+        productPriceLabel.text = nil
     }
 }
