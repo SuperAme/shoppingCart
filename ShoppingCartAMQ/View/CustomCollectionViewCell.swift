@@ -13,8 +13,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     private let productImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "house")
         imageView.clipsToBounds = true
+        imageView.sizeToFit()
         return imageView
     }()
     
@@ -36,11 +36,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .systemRed
         contentView.addSubview(productNameLabel)
         contentView.addSubview(productPriceLabel)
         contentView.addSubview(productImage)
         contentView.clipsToBounds = true
+        contentView.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +61,12 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
     }
     
-    public func configure(productName: String, productPrice: Double) {
+    public func configure(productName: String, productPrice: Double, productImageURL: String) {
+        if let url = URL(string: productImageURL) {
+            if let data = try? Data(contentsOf: url) {
+                productImage.image = UIImage(data: data)
+            }
+        }
         productNameLabel.text = productName
         productPriceLabel.text = String(productPrice)
     }
