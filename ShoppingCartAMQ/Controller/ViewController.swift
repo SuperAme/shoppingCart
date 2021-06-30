@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     private var collectionView: UICollectionView?
     let sneakersArray = ShoppingViewModel().getTotalOfSneakers()!
+    let productVC = ProductViewController()
     private let productCounter = 0
     
     override func viewDidLoad() {
@@ -61,7 +62,10 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Item \(indexPath.row) selected")
+        productVC.productName = sneakersArray[indexPath.row].name
+        productVC.productPrice = String(sneakersArray[indexPath.row].price)
+        productVC.productImageString = sneakersArray[indexPath.row].img
+        productVC.modalPresentationStyle = .fullScreen
+        present(productVC, animated: true)
     }
 }
-
